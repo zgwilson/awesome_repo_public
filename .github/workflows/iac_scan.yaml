@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Scan IaC
-        uses: ./
+        uses: orcasecurity/shiftleft-iac-action@v1
         with:
           api_token:
             ${{ secrets.ORCA_SECURITY_API_TOKEN }}
