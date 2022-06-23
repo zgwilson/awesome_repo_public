@@ -1,6 +1,7 @@
 name: Test Test Orca IaC action
 
 on:
+  push:
   pull_request:
     branches:
       - master
