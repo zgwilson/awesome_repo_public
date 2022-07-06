@@ -9,6 +9,7 @@ on:
 
 jobs:
   iac_scan_job:
+    name: IaC Security Scan
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +21,7 @@ jobs:
           path: test
           format: sarif
           output: results/results.sarif
-          console-output: cli
+          console_output: cli
 #       - name: Display Sarif Results
 #         if: always()
 #         run: |
