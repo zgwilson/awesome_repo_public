@@ -29,7 +29,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "sse_example" {
 resource "aws_kms_key" "testkey" {
   description             = "This is a test key that is used to encrypt bucket objects"
   deletion_window_in_days = 10
-  enable_key_rotation = true
+  #enable_key_rotation = true
   
   tags = {
     Name = "my_kms_key"
