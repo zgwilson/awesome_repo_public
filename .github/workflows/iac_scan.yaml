@@ -1,4 +1,4 @@
-name: Test Test Orca IaC action
+name: Orca IaC Security Scan
 
 on:
   push:
@@ -15,20 +15,16 @@ jobs:
       - name: Scan IaC
         uses: orcasecurity/shiftleft-iac-action@v1
         with:
-          api_token:
-            ${{ secrets.ORCA_SECURITY_API_TOKEN }}
-          project_key:
-            "default"
-          path:
-            "test"
-          format:
-            "sarif"
-          output:
-            "results/results.sarif"
-      - name: Display sarif results
-        if: always()
-        run: |
-          cat results/results.sarif
+          api_token: ${{ secrets.ORCA_SECURITY_API_TOKEN }}
+          project_key: default
+          path: test
+          format: sarif
+          output: results/results.sarif
+          console-output: cli
+#       - name: Display Sarif Results
+#         if: always()
+#         run: |
+#           cat results/results.sarif
       - uses: github/codeql-action/upload-sarif@v2
         if: always()
         with:
