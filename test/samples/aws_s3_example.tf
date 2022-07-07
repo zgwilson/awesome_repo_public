@@ -1,3 +1,4 @@
+# S3 Bucket
 resource "aws_s3_bucket" "example" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
@@ -26,6 +27,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "sse_example" {
   }
 }
 
+# Encryption Key
 resource "aws_kms_key" "testkey" {
   description             = "This is a test key that is used to encrypt bucket objects"
   deletion_window_in_days = 10
