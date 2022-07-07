@@ -1,20 +1,4 @@
 # S3 Bucket
-resource "aws_s3_bucket" "example2" {
-  bucket = "my-tf-test-bucket2"
-  acl    = "private"
-
-  tags = {
-    Name        = "My Test Bucket"
-    Environment = "Dev"
-  }
-
-  versioning {
-    enabled = true
-    mfa_delete = true
-  }
-}
-
-
 resource "aws_s3_bucket" "example" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
