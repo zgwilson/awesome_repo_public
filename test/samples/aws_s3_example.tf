@@ -1,3 +1,15 @@
+# Server Side Encryption
+resource "aws_s3_bucket_server_side_encryption_configuration" "sse_example" {
+  bucket = aws_s3_bucket.example.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.testkey.arn
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
 # S3 Bucket
 resource "aws_s3_bucket" "example" {
   bucket = "my-tf-test-bucket"
@@ -14,18 +26,6 @@ resource "aws_s3_bucket" "example" {
   }
 }
 
-
-# Server Side Encryption
-resource "aws_s3_bucket_server_side_encryption_configuration" "sse_example" {
-  bucket = aws_s3_bucket.example.bucket
-
-  rule {
-    apply_server_side_encryption_by_default {
-      kms_master_key_id = aws_kms_key.testkey.arn
-      sse_algorithm     = "aws:kms"
-    }
-  }
-}
 
 # Encryption Key
 resource "aws_kms_key" "testkey" {
