@@ -20,11 +20,11 @@ jobs:
           project_key: default
           path: test
           format: sarif
-          output: results/results.sarif
+          output: results/
           console_output: cli
           show_annotations: false
       - uses: github/codeql-action/upload-sarif@v2
         if: always()
         with:
           # Path to SARIF file relative to the root of the repository
-          sarif_file: results/results.sarif
+          sarif_file: results/iac.sarif
