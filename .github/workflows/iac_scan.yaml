@@ -22,6 +22,7 @@ jobs:
           format: sarif
           output: results/results.sarif
           console_output: cli
+          show_annotations: false
       - uses: github/codeql-action/upload-sarif@v2
         if: always()
         with:
