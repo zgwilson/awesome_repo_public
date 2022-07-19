@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "example" {
   }
 
   versioning {
-    enabled = true
+    enabled = false
     mfa_delete = true
   }
 }
